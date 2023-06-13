@@ -32,7 +32,7 @@ jobs:
       with:
         target_branch: main
         # REQUIRED 'target_repo_token' exactly like this!
-        target_repo_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         upstream_branch: main
         git_pull_args: --ff-only
         upstream_repository: akashrajguru/fork-sync-upstream-action.git
