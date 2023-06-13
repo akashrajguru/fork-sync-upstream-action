@@ -36,12 +36,12 @@ jobs:
         upstream_sync_branch: main
         # git_pull_args: --ff-only
         upstream_sync_repo: akashrajguru/fork-sync-upstream-action
+        test_mode: false
       
     # Step 3: Display a message if 'sync' step had new commits (simple test)
-    - name: Check for new commits
-      if: steps.sync.outputs.has_new_commits
-      run: echo steps.sync.outputs.has_new_commits
-
-    # Step 4: Print a helpful timestamp for your records (not required, just nice)
-    - name: Timestamp
-      run: date
+    - name: Sync check
+        if: failure()
+        run: |
+          echo "::error::Synchronization failed due to insufficient permissions (this is the expected behavior), please go to the warehouse homepage to execute manually[Sync fork]。"
+          echo "::error::Due to insufficient permissions, synchronization failed (as expected). Please go to the repository homepage and manually perform [Sync fork]."
+          exit 1
