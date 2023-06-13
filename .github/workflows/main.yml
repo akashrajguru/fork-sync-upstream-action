@@ -28,14 +28,14 @@ jobs:
     # Step 2: run the sync action
     - name: Sync upstream changes
       id: sync
-      uses: aormsby/Fork-Sync-With-Upstream-action@v3.4
+      uses: aormsby/Fork-Sync-With-Upstream-action@v2.1
       with:
-        target_sync_branch: main
+        target_branch: main
         # REQUIRED 'target_repo_token' exactly like this!
         target_repo_token: ${{ secrets.GITHUB_TOKEN }}
-        upstream_sync_branch: main
-        upstream_sync_repo: https://github.com/akashrajguru/fork-sync-upstream-action.git
-        test_mode: false
+        upstream_branch: main
+        git_pull_args: --ff-only
+        upstream_repository: akashrajguru/fork-sync-upstream-action.git
       
     # Step 3: Display a message if 'sync' step had new commits (simple test)
     - name: Check for new commits
