@@ -34,7 +34,7 @@ jobs:
         # REQUIRED 'target_repo_token' exactly like this!
         target_repo_token: ${{ secrets.GITHUB_TOKEN }}
         upstream_sync_branch: main
-        upstream_sync_repo: akashrajguru/fork-sync-upstream-action.git
+        upstream_sync_repo: https://github.com/akashrajguru/fork-sync-upstream-action.git
         test_mode: false
       
     # Step 3: Display a message if 'sync' step had new commits (simple test)
